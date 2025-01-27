@@ -1,2 +1,0 @@
-# GROUP_PROJECT_WEB-APP
-## Hello
