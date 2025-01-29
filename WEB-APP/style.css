@@ -2,13 +2,25 @@ body{
     margin: 0;
     padding: 0;
     overflow: hidden;
+    background-image: url(images/bg-body.png);
+    background-repeat: no repeat;
+    background-size: cover;
+    
     
 }
 
 nav{
-    background-color: black;
-    width: 100vw;
+    background-color: transparent;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    
+}
+.logo{
+    margin: 0 20px 0 50px; /* top right bottom left*/
     height: 50px;
+    width: auto;
 }
 
 .fview{
@@ -17,21 +29,48 @@ nav{
     width: 1100px;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* center verticaly in parent*/
-    align-items: ;/* (center) horizontaly placement */
-    
-   
-}
-.word{
-    
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 150px;
-    margin-left: 50px;
-    margin-top: -50px;
-    
+    justify-content: center; /* center horizontal child*/
+    /*align-items: ;/* (center) vertical child */ 
 }
 
+.word{
+    color: rgb(71, 79, 86);
+    font-family: Impact, Charcoal, sans-serif;
+    font-size: 120px;
+    margin-left: 150px;
+    margin-top: -20px;
+}
+
+.move-down{
+    padding-bottom: 30px; /*space between <p> and <span>*/
+}
+
+    
+h1 {
+    background: linear-gradient(to right, #03c506, #6a68e5, #ffffff);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+nav h2{
+    
+    padding: 5px 12px; /*top/bottom right/left*/
+    border-radius: 5px;
+    position: fixed;
+    right: 50px;
+    border: 3px solid #d4cbcb;
+    user-select: none;
+}
+
+nav h2:hover{
+    cursor: pointer;
+}
+nav h2:active{
+    background-color: rgb(151, 217, 151);
+    
+}
 /*@keyframes moveRight {
+
     0%{
         transform: translateX(100vw);
     }
