@@ -12,11 +12,15 @@
     
 </head>
 <body>
+
+
     <nav>
         <img class="logo" src="images/alien.png" alt="alien">
         <h1>Haleluyahhh</h1>
-        <h2>Signin</h2>
+        <h2 id="signinBtn">Signin</h2>
     </nav>
+
+
     <div class="fview" >
         <span class="word move-right">Welcome</span>
         
@@ -28,9 +32,33 @@
              Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur suscipit repudiandae optio molestias enim atque necessitatibus ipsa, at, 
              modi quas quis aut rerum voluptatum a voluptas accusamus ut ab perferendis!
         </p>
-        <h6>HALLOOOO    </h6>
     </div>
 
+
+    <div class="signin-container">
+        <div class="signin" id="signin">
+            <div class="close"><img src="images/close.png"></div>
+            <form>
+                <h2>Sign In</h2>
+                <label class="lbl1" for="Email">Email</label>
+                <input class="input_login" type="email">
+                <label class="lbl2" for="password">Password</label>
+                <input class="input_login" type="password">
+                <input class="checkBox" type="checkbox" name="" id="remember_me">
+                <label class="lbl-checkBox" for="Remember me">Remember me</label>
+                <a class="forgotPass" href="#password">Forgot password?</a>
+                <button>Login</button>
+                <p>or Continue with</p>
+                <div class="accounts">
+                    <a href="https://facebook.com"  target="_blank"><img src="images/fb.png" alt="facebook"></a>
+                    <a href="https://google.com" target="_blank"><img src="images/google (1).png" alt="google" ></a>
+                </div>
+                <p>Don't hava an account?   <a href="#signup">Sign up</a></p>
+            </form>
+        </div>  
+    </div>
+
+    <script src="script.js"></script>
     
 </body>
 </html>
