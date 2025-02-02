@@ -74,7 +74,8 @@ nav h2:active{
     
 }
 
-.signin-container{
+/* sign in and sign up parent */
+.form-container{
     position: fixed;
     height: 100vh;
     width: 100vw;
@@ -82,10 +83,16 @@ nav h2:active{
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 10;
+    z-index: 2;
     visibility: ;
+    user-select: none;
 }
+
+/* sign in container & sign up */
 .signin{
+    z-index: 3;
+}
+.signin, .signup{
     border-radius: 1rem;
     height: 725px;
     width: 425px;
@@ -93,7 +100,7 @@ nav h2:active{
     overflow: hidden;
 }
 
-.signin .close{
+.close{
     padding: 15px;
     height: 15px;
     display: flex;
@@ -101,14 +108,18 @@ nav h2:active{
     float: right;
     margin: 20px 20px 0 0; /*top right bottom left (close icon position in signin form) */
     transform: scale(1) rotate(0deg);
-    transition: .1s;
+    transition: .05s;
 }
 
-.signin .close:hover{
+.close:hover{
     transform: scale(1.4) rotate(180deg);
     box-shadow: 0 0 1px rgba(0, 0, 0, 0.7);
     transition: .1s;
-    user-select: none;
+}
+.close:active{
+    transform: scale(.99) rotate(180deg);
+    background-color: #ffa4a4;
+    transition: .05s;
 }
 
 form{
@@ -136,24 +147,29 @@ form .input_login{
     width: 325px;
     margin: 20px;
     padding-left: 12px;
+    padding-right: 12px;
     color: #666666;
     font-size: medium;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     box-shadow: 0 0 1px rgba(0, 0, 0, .9);
 }
-.lbl1 {
+form .lbl1 {
     position: relative;
     left: -148px;
     top: 14px;
+    font-weight: 600;
 }
-.lbl2 {
+form .lbl2 {
     position: relative;
     left: -131px;
     top: 14px;
+    font-weight: 600;
 }
 
 form .checkBox{
     position: relative;
     left: -160px;
+    cursor: pointer;
 }
 form .lbl-checkBox{
     position: relative;
@@ -180,8 +196,12 @@ form button{
     color: #ffffff;
     box-shadow: 0 0 10px rgba(0, 0, 0, .1);
     animation: colored 0.8s infinite;
+    cursor: pointer;
 }
-
+form button:active{
+    transform: scale(.98);
+    transition: .1s;
+}
 @keyframes colored {
     0%{
         background: linear-gradient(to right, rgb(157, 157, 255),rgb(255, 95, 255),rgb(151, 255, 151));
@@ -196,10 +216,10 @@ form p{
     padding-top: 30px;
     padding-bottom: 10px;
     font-size: medium;
+    font-weight: ;
 }
 
 form img{
-
     height: 35px;
     padding: 0 5px;
 }
@@ -207,6 +227,20 @@ form img{
 form img:hover{
     transform: scale(1.1);
     transition: .5s;
+}
+
+form .toSignup, .toSignin{
+    margin-left: 5px;
+    font-weight: bold;
+    color: red;
+    text-decoration: none;
+}
+
+
+.signup {
+    position: fixed;
+    z-index: 4;
+    visibility: ;
 }
 
 /*@keyframes moveRight {
