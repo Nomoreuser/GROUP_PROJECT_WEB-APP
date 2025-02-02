@@ -89,9 +89,6 @@ nav h2:active{
 }
 
 /* sign in container & sign up */
-.signin{
-    z-index: 3;
-}
 .signin, .signup{
     border-radius: 1rem;
     height: 725px;
@@ -236,35 +233,14 @@ form .toSignup, .toSignin{
     text-decoration: none;
 }
 
+.signin{
+    z-index: 3;
+    visibility: ;
+}
 
 .signup {
     position: fixed;
     z-index: 4;
-    visibility: ;
+    visibility: hidden;
 }
 
-/*@keyframes moveRight {
-
-    0%{
-        transform: translateX(100vw);
-    }
-    100%{
-        transform: translateX(0);
-        
-    }
-}
-
-/*@keyframes fall {
-    0%{
-        transform: translateY(-100vh);
-    }
-    90%{
-        transform: translateY(0);
-    }
-    95%{
-        transform: translateY(-10px);
-    }
-    100%{
-       transform: translateY(0);
-    }
-}
