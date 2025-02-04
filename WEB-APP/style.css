@@ -1,55 +1,25 @@
-
+*{
+    font-family: 'Times New Roman', Times, serif;
+}
 
 body{
     position: relative;
     margin: 0;
     padding: 0;
-    background-image: url(images/bg-body.png);
-    background-repeat: no repeat;
-    background-size: cover;
+    background-color:   #ffffff;
 }
 
 nav{
     position: fixed;
     background-color: transparent;
     width: 100%;
-    height: 60px;
+    height: clamp(30px, 10vh, 60px); /* minimum, viewport,max*/
     display: flex;
     align-items: center;
     box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
-    z-index: 1;
+    z-index: 2;
     
 }
-.logo{
-    margin: 0 20px 0 50px; /* top right bottom left*/
-    height: 50px;
-    width: auto;
-}
-
-.fview{
-    position: fixed;
-    padding-top: -10px;
-    height: 100vh;
-    width: 1100px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* center horizontal child*/
-    z-index: 1;
-}
-
-.word{
-    color: rgb(71, 79, 86);
-    font-family: Impact, Charcoal, sans-serif;
-    font-size: 120px;
-    margin-left: 150px;
-    margin-top: -20px;
-}
-
-.move-down{
-    padding-bottom: 30px; /*space between <p> and <span>*/
-}
-
-    
 nav h1 {
     background: linear-gradient(to right, #03c506, #6a68e5, #ffffff);
     -webkit-background-clip: text;
@@ -60,9 +30,11 @@ nav h2{
     padding: 5px 12px; /*top/bottom right/left*/
     border-radius: 5px;
     position: fixed;
-    right: 50px;
+    right: 0;
+    margin-right: 3%;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
     user-select: none;
+    font-size: clamp(1.5rem, 5vw, .5rem);
 }
 
 nav h2:hover{
@@ -74,6 +46,35 @@ nav h2:active{
     
 }
 
+nav .logo{
+    margin: 0 0 0 2.5%; /* top right bottom left*/
+    height: 75%;
+    width: auto;
+}
+
+.fview{
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* center horizontal child*/
+    align-items: center;
+    z-index: 1;
+    
+}
+.fview .word{
+    color: rgb(71, 79, 86);
+    font-family: Impact, Charcoal, sans-serif;
+    font-size: clamp(3.5rem, 10vw, 10rem); /* min, prefered, max */
+}
+.fview p{
+    padding: 0 15% 0 15%;
+    font-size: larger;
+    text-align: start;
+}
+
+
 /* sign in and sign up parent */
 .form-container{
     position: fixed;
@@ -83,9 +84,9 @@ nav h2:active{
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 2;
-    visibility: ;
+    z-index: 3;
     user-select: none;
+    display: none;
 }
 
 /* sign in container & sign up */
@@ -213,7 +214,6 @@ form p{
     padding-top: 30px;
     padding-bottom: 10px;
     font-size: medium;
-    font-weight: ;
 }
 
 form img{
@@ -234,13 +234,27 @@ form .toSignup, .toSignin{
 }
 
 .signin{
-    z-index: 3;
-    visibility: ;
+    z-index: 4;
 }
 
 .signup {
     position: fixed;
-    z-index: 4;
-    visibility: hidden;
+    z-index: 5;
+    display: none;
+}
+
+@media (max-width: 480px){
+    body{
+        
+    }
+    nav h1{
+        display: none;
+    }
+    .logo{
+        height: 70%;
+        width: auto;
+    }
+   
+    
 }
 

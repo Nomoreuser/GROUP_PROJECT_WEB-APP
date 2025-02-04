@@ -15,7 +15,7 @@
     <nav>
         <img class="logo" src="images/alien.png" alt="alien">
         <h1>Haleluyahhh</h1>
-        <h2 id="signinBtn">Signin</h2>
+        <h2 id="signin-Btn" onclick="toggleContainer('form-container')">Signin</h2>
     </nav>
 
 
@@ -23,8 +23,8 @@
         <span class="word move-right">Welcome</span>
         
         <span class="word move-down">YOUR SPACE</span>
-        
-        <p style="font-family: 'Arial Narrow', Arial, sans-serif; font-size: 18px; margin-left: 150px; width: 800px;">
+        <hr style="width: 90%; margin-bottom: 2%; background-color: aqua; padding: .05%; border: none;">
+        <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur suscipit repudiandae optio molestias enim atque necessitatibus ipsa, at,
              modi quas quis aut rerum voluptatum a voluptas accusamus ut ab perferendis!
              Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur suscipit repudiandae optio molestias enim atque necessitatibus ipsa, at, 
@@ -34,9 +34,9 @@
 
 
     <!-- sign in & up form ...-->
-    <div class="form-container">
+    <div class="form-container" id="form-container">
         <div class="signin" id="signin">
-            <div class="close"><img src="images/close.png" draggable="false"></div>
+            <div class="close" id="close" onclick="toggleClose('form-container')"><img src="images/close.png" draggable="false"></div>
 
             <form>
                 <h2>Sign In</h2>
@@ -58,13 +58,13 @@
                     <a href="https://facebook.com"  target="_blank" draggable="false"><img src="images/fb.png" alt="facebook" draggable="false"></a>
                     <a href="https://google.com" target="_blank" draggable="false"><img src="images/google (1).png" alt="google" draggable="false"></a>
                 </div>
-                <p>Don't hava an account?<a href="#signup" class="toSignup">Sign up</a></p>
+                <p>Don't hava an account?<a id="signup-Btn" href="#signup" class="toSignup">Sign up</a></p>
             </form>
 
         </div> 
 
-        <div class="signup">
-            <div class="close"><img src="images/close.png" draggable="false"></div>
+        <div id="signup" class="signup">
+            <div class="close" id="close" onclick="toggleClose('form-container')"><img src="images/close.png" draggable="false"></div>
 
             <form>
                 <h2>Sign Up</h2>
@@ -78,7 +78,7 @@
                 <input class="checkBox" type="checkbox" name="" id="remember_me">
                 <label class="lbl-checkBox" for="Remember me">Remember me</label>
                 <a class="forgotPass" href="#password" style="visibility: hidden;">Forgot password?</a>
-                <button>Sign Up</button>
+                <button >Sign Up</button>
 
                 <p>or sign up with</p>
                 <div class="accounts" draggable="false">
@@ -94,3 +94,4 @@
     
 </body>
 </html>
+
