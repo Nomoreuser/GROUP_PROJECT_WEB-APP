@@ -22,7 +22,7 @@ nav{
 }
 nav h1 {
     background: linear-gradient(to right, #03c506, #6a68e5, #ffffff);
-    -webkit-background-clip: text;
+    background-clip: text;
     color: transparent;
 }
 
@@ -249,13 +249,6 @@ form .toSignup, .toSignin{
     display: none;
 }
 
-@media (max-width: 375px){
-    .form .lbl1{
-        
-    }
-    
-}
-
 @media (max-width: 480px){
     nav h1{
         display: none;
@@ -270,10 +263,6 @@ form .toSignup, .toSignin{
         width: 100vw;
         border-radius: 0%;
     }
-    .form-container{
-
-    }
-
 }
 
 @media (min-width: 2560px) {
