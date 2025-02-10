@@ -1,64 +1,70 @@
 *{
-    padding: 0;
     margin: 0;
+    padding: 0;
 }
 body{
-    background-color: rgb(178, 178, 178);
+    background-image: url('https://static.vecteezy.com/system/resources/thumbnails/007/325/238/small/pink-watercolor-splash-background-with-line-art-rose-vector.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+main{
+    height: 100dvh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.491);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 50px;
+}
+
+aside{
     position: relative;
+    background-color: rgba(0, 0, 0, 0.726);
+    height: auto;
+    width: 15%;
+    height: 80%;
+    transition: right 1s ease-in-out;
 }
-div{
-    position: fixed;
-    margin-top: 13%;
-    height: 100%;
+
+.user-img-name{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(144, 203, 255);
+    height: auto;
     width: 100%;
-    text-align: center;
-    background-color: rgb(178, 178, 178);
+    padding: 70px 0;
 }
-p{
-    font-size: 400px;
+.img-holder{
+    background-color: rgba(26, 26, 26, 0.643);
+    height: 85px;
+    width: 85px;
+    border-radius: 50%;
 }
-.a{
-    z-index: 2;
-}
-.b{
-    height: 100vh;
-    animation: up 12s;
-}
+h2{
 
-span{
+}
+.user-edit{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: aliceblue;
     position: absolute;
-    animation: moveDots 3s;
+    top: 0;
+    right: 0;
+    border-bottom-left-radius: 50%;
+    width: 35px;
+    height: 35px;
 }
-
-span:nth-child(1){
-    color: rgba(255, 0, 0, 0.484);
+.user-edit svg:active{
+    transform: scale(.8);
 }
-span:nth-child(2){
-    color: rgba(0, 128, 0, 0.44);
-    margin-left: 75px;
-    animation-delay: 1s;
-}
-span:nth-child(3){
-    color: rgba(0, 0, 255, 0.469);
-    margin-left: 150px;
-    animation-delay: 2s;
-}
-@keyframes moveDots {
-    0% {
-      transform: translateX(1000px);
-      display: none;
-    }50%{
-        transform: translateX(0);
-        display: block;
-    }
-    100% {
-    }
-}
-
-@keyframes up {
-    0%{
-    }
-    100%{
-        z-index: 5;
-    }
+.ano-bato{
+    background-color: rgba(0, 0, 0, 0.464);
+    width: 45%;
+    height: 80%;
 }
