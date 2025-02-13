@@ -3,10 +3,10 @@
     padding: 0;
 }
 body {
-    background-image: url('https://static.vecteezy.com/system/resources/thumbnails/007/325/238/small/pink-watercolor-splash-background-with-line-art-rose-vector.jpg');
+    background-image: url('https://scontent.fmnl25-5.fna.fbcdn.net/v/t39.30808-6/438087167_883950483742930_7500071868397017914_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGmGSuAFmlddf6jF6hwEe7zuaHAHsmTNCe5ocAeyZM0J9u6rouk0ZSM5YprD2H3tULhgwQra6a_m0eKDP11XVHh&_nc_ohc=wlTKtvmLFDEQ7kNvgFoHCg2&_nc_oc=AdjIcaBFI7ZQtVlc-F-jjjlkXjMeiRswKjSlvAaoVDW3lq6hD_9VaPx2F--_8uLQIaM&_nc_zt=23&_nc_ht=scontent.fmnl25-5.fna&_nc_gid=AjIL64JJfg4UOB51RpcgdUS&oh=00_AYCq-2sEBj1mJSr0RFReJ-nj1T-LFItV7Q4LYGGHWPOtQQ&oe=67B3935D');
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: center center;
     height: 100vh;  /* Ensure the body takes full height */
     width: 100vw;   /* Ensure the body takes full width */
     margin: 0;
@@ -17,11 +17,11 @@ main{
     position: fixed;
     height: 100vh;
     width: 100vw;
-    background-color: rgba(146, 255, 129, 0.491);
+    background-color: rgba(0, 0, 0, 0.438);
     display: flex;
     align-items: center;
     justify-content: center;
-    column-gap: 25px;
+    column-gap: 50px;
 }
 
 aside{
@@ -29,10 +29,10 @@ aside{
     display: flex;
     flex-direction: column;
     align-items: center;
-    left: 0;
-    background-color: rgba(255, 91, 91, 0.726);
+
+    background-color: rgba(0, 0, 0, 0.469);
     height: auto;
-    width: 15%;
+    width: 250px;
     height: 80%;
     transition: right 1s ease-in-out;
 }
@@ -44,7 +44,7 @@ aside{
     row-gap: 20px;
     align-items: center;
     justify-content: center;
-    background-color: rgb(144, 203, 255);
+    background-color: rgba(144, 203, 255, 0.244);
     height: auto;
     width: 100%;
     padding: 70px 0;
@@ -56,13 +56,13 @@ aside{
     border-radius: 50%;
 }
 h2{
-
+    color: aliceblue;
 }
 .user-edit{
     display: flex;
+    background-color: rgba(240, 248, 255, 0.527);
     align-items: center;
     justify-content: center;
-    background-color: aliceblue;
     position: absolute;
     top: 0;
     right: 0;
@@ -70,15 +70,34 @@ h2{
     width: 35px;
     height: 35px;
 }
+.user-edit::before{
+    content: "Edit";
+    text-align: center;
+    font-size: 20px;
+    margin-left: 105px;
+    position: absolute;
+    width: 70px;
+    padding: 10px 0;
+    background-color: rgba(240, 248, 255, 0.64);
+    display: none;
+}
+.user-edit:hover::before{
+    display: block;
+
+}
 .user-edit svg:active{
     transform: scale(.8);
+    color: #0057b39b;
 }
+
 .ano-bato{
 
     background-color: rgba(0, 0, 0, 0.464);
-    width: 50rem;
+    width: 850px;
     height: 80%;
 }
+
+
 
 @media (max-width: 768px){
     main{
@@ -98,11 +117,11 @@ h2{
         width: fit-content;
     }
     .img-holder{
-        height: 3rem;
-        width: 3rem;
+        height: clamp(2.5rem,7vw,3rem);
+        width: clamp(2.5rem,7vw,3rem);
     }
     h2{
-        font-size: clamp(10px,6vw,25px);
+        font-size: clamp(15px,6vw,25px);
         margin-left: 5px;
     }
     .user-img-name{
@@ -111,15 +130,28 @@ h2{
     .user-edit{
         display: none;
     }
+    .ano-bato{
+        width: 100%;
+    }
 }
 
-
-
-
-
-@media (max-width: 1024px){
+@media(min-width: 2560px){
     aside{
-        margin-left: 0;
+        width: 450px;
+    }
+    .img-holder{
+        height: 10rem;
+        width: 10rem;
+    }
+    .user-edit{
+        height: 80px;
+        width: 80px;
+    }
+    h2{
+        font-size: 40px;
+    }
+    .ano-bato{
+        width: 1300px;
     }
 
 }
