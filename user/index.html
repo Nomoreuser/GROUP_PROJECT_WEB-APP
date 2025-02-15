@@ -11,7 +11,7 @@
     <main>
         <aside>
             <div class="user-img-name">
-                <div class="user-edit">
+                <div class="user-edit" onclick="toEdit('edit')">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user-pen"><path d="M11.5 15H7a4 4 0 0 0-4 4v2"/><path d="M21.378 16.626a1 1 0 0 0-3.004-3.004l-4.01 4.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z"/><circle cx="10" cy="7" r="4"/></svg>
                 </div>
                 <div class="img-holder">
@@ -32,8 +32,56 @@
         </div>
     </main>
 
+    <div class="edit" id="edit">
+        
+        <div class="editI">
+
+            <div style="position: absolute; right: 0; margin: 15px 20px;" onclick="toExit('edit')" class="back">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </div>
+
+            <form class="modify" >
+
+                <div class="imgChange">
+                    <div id="circle" >
+                        <img style="height: 100%; width: 100%; object-fit: cover; " src="https://cdn-icons-png.flaticon.com/512/149/149071.png" 
+                        alt="Profile Picture" id="profilePic">
+                    </div>
+                    <div class="selectImg" >
+                        <label for="fileInput" class="upload-label" style="padding: 10px 5px; font-weight: bold;">
+                            Change Profile Picture</label>
+                        <input type="file" id="fileInput" class="file-input" accept="image/*" style="display: none;">
+                    </div>
+                     
+                </div>
+
+                <hr>
+
+                <div>
+
+                </div>
+
+            </form>
+
+        </div>
+    </div>
 
 
+    <script>
+        document.getElementById('fileInput').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('profilePic').src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+                document.getElementById('circle').style.border = "7px solid rgba(154, 91, 255, 0.41)";
+
+            }
+        });
+    </script>
+    <script src="sc.js"></script>
 
 </body>
 </html>
