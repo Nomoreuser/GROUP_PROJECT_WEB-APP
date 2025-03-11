@@ -8,6 +8,16 @@ body{
     padding: 0;
     background-image: url('https://storage.pixteller.com/designs/designs-images/2019-03-27/05/simple-background-backgrounds-passion-simple-1-5c9b95c3a34f9.png');
 }
+nav, .fview{
+    animation: pop 1.4s ease-in;
+}
+@keyframes pop {
+    0%{
+        opacity: 0;
+    }100%{
+        opacity: 1;
+    }
+}
 
 nav{
     position: fixed;
@@ -68,6 +78,11 @@ nav .logo{
     font-family: Impact, Charcoal, sans-serif;
     font-size: clamp(3.5rem, 10vw, 10rem); /* min, prefered, max */
 }
+hr{
+    width: 90%;
+}
+
+
 .fview p{
     padding: 0 15% 0 15%;
     font-size: clamp(16px,4vw,1.5rem);
