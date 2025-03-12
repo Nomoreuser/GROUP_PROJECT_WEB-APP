@@ -19,11 +19,19 @@
                     </div>
                     <h1 class="user-name">Username</h1>
                 </div>
-                <div class="container-button">
-                    <div class="folder" onclick="createFolder()">
+                <div class="navButton">
+                    <div class="button quote" onclick="createFolder()">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cross"><path d="M4 9a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h4a1 1 0 0 1 1 1v4a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-4a1 1 0 0 1 1-1h4a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2h-4a1 1 0 0 1-1-1V4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4a1 1 0 0 1-1 1z"/></svg>
-                        <p>Quote</p>
+                        <p>Quotes</p>
                     </div>
+                    <div class="button links">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cable"><path d="M17 21v-2a1 1 0 0 1-1-1v-1a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1"/><path d="M19 15V6.5a1 1 0 0 0-7 0v11a1 1 0 0 1-7 0V9"/><path d="M21 21v-2h-4"/><path d="M3 5h4V3"/><path d="M7 5a1 1 0 0 1 1 1v1a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a1 1 0 0 1 1-1V3"/></svg>
+                        <p>Links</p>
+                    </div>
+
+                </div>
+                <div id="LogOut" style="text-align: center; font-size: 25px; padding: 20px 0; border-top: 1px solid white;">
+                    Log out
                 </div>
             </nav>
 
@@ -46,8 +54,14 @@
 
     <div class="pop-up" id="pop-up">
         <div class="inputFolderName">
-            <h1>Quote</h1>
-            <input type="text" maxlength="20" id="folderName" placeholder="Enter folder name" >
+            <h1 style="margin-left: 6%;">Quote</h1>
+            <div class="containQuotes">
+                <div style="height: 100%; overflow-y: scroll;overflow-x: hidden;">
+                    <input class="quotedBy" type="text" maxlength="20" placeholder="Quoted by">
+                    <hr style="width: 50%;position: relative; float: left;">
+                    <textarea class="inputQuotes" name="" id="folderName" placeholder="text....."></textarea>
+                </div>
+            </div>      
             <div class="input-buttons">
                 <button id="cancel">Cancel</button>
                 <button id="create" disabled >Create</button>
