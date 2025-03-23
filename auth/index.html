@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="icon" type="image/x-icon" href="images/logo.png">
-    <title>Haleluyahhh</title>
+    <link rel="icon" type="image/x-icon" href="/img/favicon.png">
+    <title>Quick/Save</title>
     
     <link rel="stylesheet" href="style.css">
 
@@ -15,9 +15,9 @@
 
 
     <nav>
-        <img class="logo" src="images/alien.png" alt="alien">
-        <h1>Haleluyahhh</h1>
-        <h2 id="signin-Btn" onclick="toggleContainer('form-container')">Signin</h2>
+        <img class="logo" src="/img/favicon.png" alt="alien">
+        <h1>Quick<span>/</span>Save</h1>
+        <h2 id="signin-Btn" onclick="toForm()">Sign-in</h2>
     </nav>
 
 
@@ -39,58 +39,49 @@
     <!-- sign in & up form ...-->
     <div class="form-container" id="form-container">
         <div class="signin" id="signin">
-            <div class="close" id="close" onclick="toggleClose('form-container')"><img src="images/close.png" draggable="false"></div>
+            <div class="close" id="close" onclick="closeForm()"><img src="/img/close.png" draggable="false"></div>
 
-            <form id="sign-in_form">
-                <h2>Sign In</h2>
+            <form id="Log-in">
+                <h2>Log In</h2>
 
-                <label class="lbl1" for="Email">Email</label>
-                <input class="input_login" type="email"  id="sign-in_email" required>
+                <label class="lbl1" for="Username">Username</label>
+                <input class="input_login" type="text"  id="loginUsername" required>
 
                 <label class="lbl2" for="password">Password</label>
-                <input class="input_login" type="password" id="sign-in_password" required>
-
-                <div class="checkBox"><input type="checkbox" name="" class="checkBoxs"></div>
-                
-                <label class="lbl-checkBox" for="Remember me" id="remember_me">Remember me</label>
-                <a class="forgotPass" href="#password">Forgot password?</a>
+                <input class="input_login" type="password" id="loginPassword" required>
 
                 <button type="submit">Login</button>
 
                 <p>or sign in with</p>
                 <div class="accounts">
-                    <a href="https://facebook.com"  target="_blank" draggable="false"><img src="images/fb.png" alt="facebook" draggable="false"></a>
-                    <a href="https://google.com" target="_blank" draggable="false"><img src="images/google (1).png" alt="google" draggable="false"></a>
+                    <a href="https://facebook.com"  target="_blank" draggable="false"><img src="/img/fb.png" alt="facebook" draggable="false"></a>
+                    <a href="https://google.com" target="_blank" draggable="false"><img src="/img/google (1).png" alt="google" draggable="false"></a>
                 </div>
-                <p class="bottom-p">Don't hava an account?<a id="signup-Btn" href="#signup" class="toSignup">Sign up</a></p>
+                <p class="bottom-p">Don't hava an account?<span class="toSignup" id="toSignup">Sign up</span></p>
             </form>
 
         </div> 
 
         <div id="signup" class="signup">
-            <div class="close" id="close" onclick="toggleClose('form-container')"><img src="images/close.png" draggable="false"></div>
+            <div class="close" id="close" onclick="closeForm()"><img src="/img/close.png" draggable="false"></div>
 
-            <form id="sign-up_form">
+            <form id="Sign-up">
                 <h2>Sign Up</h2>
 
-                <label class="lbl1" for="Email">Email</label>
-                <input class="input_login" type="email" id="sign-up_email" required>
+                <label class="lbl1" for="Username">Username</label>
+                <input class="input_login" type="text" id="signupUsername" required>
 
                 <label class="lbl2" for="password">Password</label>
-                <input class="input_login" type="password" id="sign-up_password" required>
+                <input class="input_login" type="password" id="signupPassword" required>
 
-                <div class="checkBox"><input type="checkbox" name="" class="checkBoxs"></div>
-
-                <label class="lbl-checkBox" for="Remember me">Remember me</label>
-                <a class="forgotPass" href="#password" style="visibility: hidden;">Forgot password?</a>
-                <button type="submit">Sign Up</button>
+                <button type="submit">Sign up</button>
 
                 <p>or sign up with</p>
                 <div class="accounts" draggable="false">
-                    <a href="https://facebook.com"  target="_blank" draggable="false"><img src="images/fb.png" alt="facebook" draggable="false"></a>
-                    <a href="https://google.com" target="_blank" draggable="false"><img src="images/google (1).png" alt="google" draggable="false"></a>
+                    <a href="https://facebook.com"  target="_blank" draggable="false"><img src="/img/fb.png" alt="facebook" draggable="false"></a>
+                    <a href="https://google.com" target="_blank" draggable="false"><img src="/img/google (1).png" alt="google" draggable="false"></a>
                 </div>
-                <p class="bottom-p">Already have account?<a href="#sigin" class="toSignin">Sign In</a></p>
+                <p class="bottom-p">Already have account?<span class="toSignin" id="toLogin">Log In</span></p>
             </form>
         </div>
     </div>

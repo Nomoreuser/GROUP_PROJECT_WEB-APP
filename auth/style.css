@@ -31,9 +31,11 @@ nav{
     
 }
 nav h1 {
-    background: linear-gradient(to right, #03c506, #6a68e5, #ffffff);
-    background-clip: text;
-    color: transparent;
+    color: black;
+}
+nav h1 span{
+    font-size: 30px;
+    color: rgb(255, 0, 0);
 }
 
 nav h2{
@@ -96,9 +98,6 @@ hr{
     height: 100vh;
     width: 100vw;
     backdrop-filter: blur(5px) contrast(.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
     z-index: 3;
     user-select: none;
     display: none;
@@ -111,6 +110,11 @@ hr{
     width: 425px;
     background-color: rgb(255, 255, 255);
     overflow: hidden;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }
 
 .close{

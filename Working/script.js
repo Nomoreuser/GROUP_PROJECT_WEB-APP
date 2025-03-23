@@ -1,33 +1,119 @@
 
-const clickFolder = document.getElementById("popQuote");
-const inputFolderName = document.getElementById("folderName");
-const quotedBy = document.getElementById("quotedBy");
-const quoteInp = document.getElementById("inputQuotes");
-const labelC = document.getElementById("labelC");
 
-document.getElementById("navButton").addEventListener('click', (event) => {
-  // for Quote show
-  if(event.target.closest("#quoteB")){
-    labelC.innerHTML = "Quote";
-    
-    
+let getUsername = localStorage.getItem("username");
+document.getElementById("user-name").innerHTML = getUsername;
+
+
+// const clickFolder = document.getElementById("popQuote");
+// const inputFolderName = document.getElementById("folderName");
+// const quotedBy = document.getElementById("quotedBy");
+// const quoteInp = document.getElementById("inputQuotes");
+// const labelC = document.getElementById("labelC");
+
+//nav button
+let add = document.getElementById("addNew");
+
+//main section container of them
+let quotes = document.getElementById("forQuotes");
+let links = document.getElementById("forLinks");
+let tasks = document.getElementById("forTasks");
+
+
+
+
+document.addEventListener('click', function(event){
+
+  if(event.target === document.getElementById("addBtn")){
+    document.getElementById("addList").style.display="block";
+  }else if(event.target !== document.getElementById("addBtn")){
+    document.getElementById("addList").style.display="none";
   }
-  // for Link show
-  if(event.target.closest("#linkB")){
-    labelC.innerHTML = "Link";
+
+  if(event.target === document.getElementById("popQuote") || event.target===document.getElementById("cancel")){
+    document.getElementById("popQuote").style.display = "none";
+    document.getElementById("quoteTitle").value="";
+    document.getElementHyId("quoteInp").value="";
   }
-  //other button to add show
+
 });
 
+function addQuotes() {
+  popQuote.style.display = "block";
+};
 
-popQuote.addEventListener('click', (event) => {
-    if(event.target == clickFolder || event.target == cancel){
-        clickFolder.style.display="none";
-        quotedBy.value = "";
-        quoteInp.value = "";
-    }
-    
+document.getElementById("quoteInp").addEventListener('input', ()=>{
+  if(document.getElementById("quoteInp").value.trim() !== ""){
+    document.getElementById("submitQuote").style.color=" #007bff"
+    document.getElementById("submitQuote").disabled=false;
+  }else{
+    document.getElementById("submitQuote").style.color=" #565656c6";
+    document.getElementById("submitQuote").disabled=true;
+  }
+})
+
+document.getElementById("submitQuote").addEventListener('click', () =>{
+  
+  let getQuoteTitle = document.getElementById("quoteTitle").value;
+  let getQuoteInp = document.getElementById("quoteInp").value;
+
+  let storedQuotes = JSON.parse(localStorage.getItem("storedQuotes")) || [];
+  let newQuotes = {
+    title: getQuoteTitle,
+    text: getQuoteInp
+  };
+  storedQuotes.push(newQuotes);
+
+  localStorage.setItem("storedQuotes", JSON.stringify(storedQuotes));
+
+  displayQuotes();
+  
+  document.getElementById("popQuote").style.display="none";
+  document.getElementById("quoteTitle").value="";
+  document.getElementById("quoteInp").value="";
 });
+displayQuotes();
+
+function displayQuotes(){
+  let storedQuotes = JSON.parse(localStorage.getItem("storedQuotes")) || [];
+  quotes.innerHTML="";
+
+  for(let i = 0;i<storedQuotes.length;i++){
+    quotes.innerHTML += `<div><h1>${storedQuotes[i].title}</h1></div>`;
+  }
+}
+
+///  -- - -- - - - -MAIN -- - - - -- - - -  -- -//
+function Quotes(){
+  handleShow("Quotes", quotes, links, tasks);
+  displayQuotes();
+}
+function Links(){
+  handleShow("Links",links,quotes,tasks);
+}
+function Todo(){
+  handleShow("To-do",tasks,quotes,links)
+}
+
+function handleShow(setLabel,show,hide,hide1){
+  document.getElementById("labelC").innerHTML = setLabel;
+
+  show.style.display="block";
+  hide.style.display="none";
+  hide1.style.display="none";
+}
+///  == - - - = -= - = -= -= - =- =- = -= -= - =- =- = -=//
+
+
+
+
+// popQuote.addEventListener('click', function(event) {
+//     if(event.target == clickFolder || event.target == cancel){
+//         clickFolder.style.display="none";
+//         quotedBy.value = "";
+//         quoteInp.value = "";
+//     }
+    
+// });
 
 // function openQuote(){
 //   labelC.innerHTML = "Quote";

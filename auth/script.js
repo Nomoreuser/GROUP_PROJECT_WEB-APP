@@ -1,95 +1,89 @@
+// global so no need to call it in my function
+let formContainer = document.getElementById("form-container");
 
-// Function to show/hide the form container
-function toggleContainer(id) {
-    let formContainer = document.getElementById(id);
-    formContainer.style.display = formContainer.style.display === "flex" ? "none" : "flex";
+let loginUsername = document.getElementById("loginUsername");
+let loginPassword = document.getElementById("loginPassword");
+
+let signupUsername = document.getElementById("signupUsername");
+let signupPassword = document.getElementById("signupPassword");
+
+// Function to show the form-container
+function toForm(){
+    formContainer.style.display = "block";
 }
 
-// Function to close the form
-function toggleClose(id) {
-    let formContainer = document.getElementById(id);
+// Function to close the form-container
+function closeForm() {
     formContainer.style.display = "none";
 }
 
-// Ensure the signup button switches views properly
-document.getElementById("signup-Btn").addEventListener("click", function(event) {
+// show sign up .. hiding log in 
+document.getElementById("toSignup").addEventListener("click", function(event) {
     event.preventDefault(); // Prevent the link from refreshing the page
     document.getElementById("signin").style.display = "none"; 
     document.getElementById("signup").style.display = "block"; 
 });
 
-// Ensure the signin button switches views properly
-document.querySelector(".toSignin").addEventListener("click", function(event) {
+// show log in .. hide sign up
+document.getElementById("toLogin").addEventListener("click", function(event) {
     event.preventDefault();
     document.getElementById("signup").style.display = "none";
     document.getElementById("signin").style.display = "block";
 });
 
 
+function clearInput(username,password){
+    username.value="";
+    password.value=""
+}
 
-//Handle the users inputs for there email and pass 
-document.getElementById("sign-up_form").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent form submission
+// Sign up Form save user input to use it in log in
+document.getElementById("Sign-up").addEventListener('submit', function(event) {
+    event.preventDefault();
 
-    let email = document.getElementById("sign-up_email").value;
-    let password = document.getElementById("sign-up_password").value;
+    let username = signupUsername.value;
+    let password = signupPassword.value;
+    
+    //get the stored input
+    let users = JSON.parse(localStorage.getItem("users")) || [];
 
-    if (!email || !password) {
-        alert("Please fill in all fields!");
+    let existing = users.find(user => user.username === username);
+    if(existing){
+        alert("Username already exists");
+        clearInput(signupUsername,signupPassword);
+
+        document.getElementById("signup").style.display = "none";
+        document.getElementById("signin").style.display = "block";
         return;
     }
 
+    users.push({username,password});
+    localStorage.setItem("users", JSON.stringify(users));
 
-    // Save user credentials to localStorage
-    localStorage.setItem("userEmail", email);
-    localStorage.setItem("userPassword", password);
-
-    let savedEmail = localStorage.getItem("userEmail");
-    let savedPassword = localStorage.getItem("userPassword");
-
-    if(email === savedEmail && password === savedPassword){
-        alert("Already have it $^%");
-        return;
-    }
-
-
-    alert("Sign Up Successful! Please Sign In.");
-    // once done it automatically hide the sign up to see the sign in .
+    clearInput(signupUsername,signupPassword);
+   
     document.getElementById("signup").style.display = "none";
     document.getElementById("signin").style.display = "block";
 });
 
-document.getElementById("sign-in_form").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent form submission
 
-    let enteredEmail = document.getElementById("sign-in_email").value;
-    let enteredPassword = document.getElementById("sign-in_password").value;
+//log in form checking if input equal in stored before direct in dashboard
+document.getElementById("Log-in").addEventListener('submit', function(event) {
+    event.preventDefault();
 
-    let storedEmail = localStorage.getItem("userEmail");
-    let storedPassword = localStorage.getItem("userPassword");
+    let username = loginUsername.value;
+    let password = loginPassword.value;
 
-    if (enteredEmail === storedEmail && enteredPassword === storedPassword) {
-        // go to my other html onces its true
-        window.location.href = "/user/index.html";
+    let storedUsers = JSON.parse(localStorage.getItem("users")) || [];
 
-        // Check if "Remember Me" is checked
-        if (document.getElementById("remember_me").checked) {
-            localStorage.setItem("rememberedUser", enteredEmail);
-        } else {
-            localStorage.removeItem("rememberedUser");
-        }
+    let check = storedUsers.find(user => user.username === username && user.password === password);
+    if(check){
+        // to rename the username in my user dashboard;
+        localStorage.setItem("username",check.username);
+        window.location.href="/Working/index.html";
+    }else {
+        alert("No account or Wrong Username or Password");
+    };
 
-    } else {
-        alert("Invalid email or password! Please try again.");
-    }
+    clearInput(loginUsername,loginPassword);
 });
-
-// Auto-fill email if "Remember Me" was checked
-window.onload = function() {
-    let rememberedUser = localStorage.getItem("rememberedUser");
-    if (rememberedUser) {
-        document.getElementById("sign-in_email").value = rememberedUser;
-        document.getElementById("remember_me").checked = true;
-    }
-};
-

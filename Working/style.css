@@ -4,14 +4,14 @@
 }
 
 body{
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 #bg{
-    position: absolute;
-    width: 100vw;
-    height: 100dvh;
-    background-color: rgb(67, 67, 67);
+  position: absolute;
+  width: 100vw;
+  height: 100dvh;
+  background-color: rgb(67, 67, 67);
 }
 .container{
   height: 100vh;
@@ -25,11 +25,11 @@ body{
 
 
 nav{
-    border-right: 2px solid whitesmoke;
-    height: 100%;
-    width: 10%;
-    display: flex;
-    flex-direction: column
+  border-right: 2px solid whitesmoke;
+  height: 100%;
+  width: 10%;
+  display: flex;
+  flex-direction: column
 }
 .user-img-name{
   margin-top: 30px;
@@ -38,10 +38,10 @@ nav{
   align-items: center;
 }
 .user-img{
-    height: 55px;
-    width: 55px;
-    border-radius: 50%;
-    background-color: aliceblue;
+  height: 55px;
+  width: 55px;
+  border-radius: 50%;
+  background-color: aliceblue;
 }
 .user-name{
   font-size: 22px;
@@ -54,8 +54,44 @@ nav{
   height: 100%;
   display: flex;
   flex-direction: column;
-  margin-top: 65%;
 }
+
+#add{
+  margin: 30% 0 20% 10%;
+  width: fit-content;
+}
+
+#addBtn{
+  background-color: #f8f8f8;
+  font-size: 30px;
+  color: rgb(97, 95, 95);
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 5px 5px;
+  text-align: center;
+  box-shadow: 3px 3px rgb(51, 50, 50);
+  
+}
+#addList{
+  background-color: rgb(255, 255, 255);
+  font-size: 20px;
+  position: absolute;
+  padding: 10px;
+  top: 160px;
+  left: 20px;
+  border: 1px solid darkgray;
+  border-radius: 10px;
+  box-shadow: 5px 5px #27272790;
+  display: none;
+}
+#addList div{
+  padding: 10px 10px;
+}
+#addList div:hover{
+  background-color: #d3d7d9;
+}
+
+
 .button{
   display: flex;
   align-items: center;
@@ -78,17 +114,14 @@ svg{
 .button:hover svg{
   stroke: rgb(67, 67, 67);
 }
-.New{
-  margin-bottom: 75px;
-}
 
 
 
 main{
-    background-color: rgb(255, 255, 255);
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
+  background-color: rgb(255, 255, 255);
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
 }
 #labelC{
   margin-left: 30px;
@@ -96,88 +129,97 @@ main{
   font-weight: bolder;
   color: rgb(67, 67, 67);;
 }
+section{
+  width: 100%;
+  height: 100%;
+  display: none;
+  background-color: rgb(255, 255, 255);
+}
+
+
+
 
 
 
 /* my hidden div will only show when user click */
- #popQuote{
-    display: none;
-    position: fixed;
-    background-color: rgba(0, 0, 0, 0.622);
-    height: 100dvh;
-    width: 100vw;
-    z-index: 5;
-  }
-  .quoteBox{
-    height: 500px;
-    width: 800px;
-    background-color: aliceblue;
+#popQuote{
+  display: none;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.622);
+  height: 100dvh;
+  width: 100vw;
+  z-index: 5;
+}
+#quoteBox{
+  height: 500px;
+  width: 800px;
+  background-color: aliceblue;
     
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
     
-  }
-  .containQuotes{
-    /* background-color: #555; */
-    width: 85%;
-    height: 70%;
-    overflow: hidden;
-    border: 1px solid gray;
+}
+.containQuotes{
+  /* background-color: #555; */
+  width: 85%;
+  height: 70%;
+  overflow: hidden;
+  border: 1px solid gray;
 
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-  }
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
 
-  .quotedBy{
-    width: 100%;
-    outline: none;
-    border: none;
-    border-bottom: 1px solid gray;
-    font-size: 33px;
-    font-weight: bolder;
-    color: #434445;
-    padding: 20px 0;
-    text-indent: 40px;
-    position: absolute;
-  }
-  .inputQuotes{
-    padding-top: 90px;
-    text-indent: 20px;
-    height: 100%;
-    width: 100%;
-    color: #4d4f51;
-    font-size: 25px;
-    font-weight: 800;
-    border: none;
-    outline: none;
-    overflow-y: auto;
-    resize: none;
-    font-family: 'Allerta', cursive;
-  }
-  .input-buttons{
-    display: flex;
-    margin: 0 70px;
-    justify-content: flex-end;
-  }
-  #cancel, #create{
-    margin-top: 15px;
-    padding: 10px;
-    font-weight: bolder;
-    font-size: large;
-  }
-  #cancel{
-    color: #007bff;
-    background-color: transparent;
-    border: none;
-  }
- #create{
-    color: #565656c6;
-    background-color: transparent;
-    border: none;
-  }
+.quotedBy{
+  width: 100%;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid gray;
+  font-size: 33px;
+  font-weight: bolder;
+  color: #434445;
+  padding: 20px 0;
+  text-indent: 40px;
+  position: absolute;
+}
+.inputQuotes{
+  padding-top: 90px;
+  text-indent: 20px;
+  height: 100%;
+  width: 100%;
+  color: #4d4f51;
+  font-size: 25px;
+  font-weight: 800;
+  border: none;
+  outline: none;
+  overflow-y: auto;
+  resize: none;
+  font-family: 'Allerta', cursive;
+}
+.input-buttons{
+  display: flex;
+  margin: 0 70px;
+  justify-content: flex-end;
+}
+#cancel, #submitQuote{
+  margin-top: 15px;
+  padding: 10px;
+  font-weight: bolder;
+  font-size: large;
+}
+#cancel{
+  color: #007bff;
+  background-color: transparent;
+  border: none;
+}
+#submitQuote{
+  color: #565656c6;
+  background-color: transparent;
+  border: none;
+}
 
 
 
@@ -187,17 +229,17 @@ main{
 
 
 @media(max-width: 425px){
-    .container{
-        flex-direction: column;
-        align-items: baseline;
-        transform: translateY(0%);
-    }
-    nav{
-        height: 80px;
-        width: 100%;
-        border-radius: 0;
-    }
-    main{
-        margin: 0;
-    }
+  .container{
+    flex-direction: column;
+    align-items: baseline;
+    transform: translateY(0%);
+  }
+  nav{
+    height: 80px;
+    width: 100%;
+    border-radius: 0;
+  }
+  main{
+    margin: 0;
+  }
 }
