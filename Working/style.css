@@ -118,37 +118,39 @@ svg{
 
 
 main{
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(67, 67, 67);
   height: 100vh;
   width: 100vw;
   overflow: hidden;
+}
+.lbl{
+  background-color: #1d1d1d;
+  height: 100px;
 }
 #labelC{
   margin-left: 30px;
   font-size: 65px;
   font-weight: bolder;
-  color: rgb(67, 67, 67);;
+  color: white;
 }
 section{
   width: 100%;
   height: 100%;
   display: none;
-  background-color: rgb(255, 255, 255);
+}
+#forQuotes{
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 
-
-
-
-
-/* my hidden div will only show when user click */
+/* -=- my hidden div will only show when user click the New Quote  -=--=*/
 #popQuote{
   display: none;
-  position: fixed;
-  background-color: rgba(0, 0, 0, 0.622);
+  position: absolute;
+  background-color:  #0000008c;
   height: 100dvh;
   width: 100vw;
-  z-index: 5;
 }
 #quoteBox{
   height: 500px;
@@ -220,11 +222,87 @@ section{
   background-color: transparent;
   border: none;
 }
+/* = =-= -= - =- = -= - = -= -= -= - =- = -= -= =-=-=-=-=-=-=-- =- = - */
 
 
+/* = = == = == -=- =- =Show when clicked New Links -= -= - =- =- = - = */
+#popLink{
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  background-color: #0000008c;
+  display: none;
+}
+#saveLinks{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+
+  background-color: #ffffff;
+  height: auto;
+  width: 400px;
+  color: #2A2A2A;
+  padding: 20px;
+  box-shadow: 10px 10px rgb(44, 44, 44);
+}
+
+#saveLinks h2,input{
+  width: 95%;
+  font-weight: bold;
+  font-size: larger;
+}
+#saveLinks h2{
+  margin-top: 30px;
+  margin-bottom: 0;
+}
+#saveLinks input{
+  padding: 10px;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid black;
+}
+#saveLinks button{
+  background-color: transparent;
+  border: none;
+  float: right;
+  margin: 35px 30px 0 0;
+  font-size: larger;
+  font-weight: bold;
+}
+#submitLink{
+  color: #565656c6;
+}
+#cancelLink{
+  color: #007bff;
+}
+/* ==- =- =- =- =-- =-00 = = - = -= -= -=- = -= -= -= -= -= */
 
 
-/* create from js and style this using the id i name it */
+/* id from js style */
+.quoteList{
+  width: 95%;
+  padding: 10px 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  border-bottom: 1px solid #B0B0B0;
+  margin: auto;
+}
+.quoteList:hover{
+  background-color: #2A2A2A;
+}
+
+.titleDate{
+  color: #E0E0E0;
+  padding: 5px 0;
+}
+.titleDate h1{
+  margin: 0 0;
+}
+
 
 
 

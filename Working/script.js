@@ -16,7 +16,7 @@ let add = document.getElementById("addNew");
 //main section container of them
 let quotes = document.getElementById("forQuotes");
 let links = document.getElementById("forLinks");
-let tasks = document.getElementById("forTasks");
+let tasks = document.getElementById("forTodo");
 
 
 
@@ -25,23 +25,38 @@ document.addEventListener('click', function(event){
 
   if(event.target === document.getElementById("addBtn")){
     document.getElementById("addList").style.display="block";
-  }else if(event.target !== document.getElementById("addBtn")){
+
+  }else{
     document.getElementById("addList").style.display="none";
   }
 
   if(event.target === document.getElementById("popQuote") || event.target===document.getElementById("cancel")){
     document.getElementById("popQuote").style.display = "none";
     document.getElementById("quoteTitle").value="";
-    document.getElementHyId("quoteInp").value="";
+    document.getElementById("quoteInp").value="";
+  }
+
+  if(event.target === document.getElementById("cancelLink") || event.target === document.getElementById("popLink")){
+    document.getElementById("popLink").style.display="none";
+    document.getElementById("linkName").value="";
+    document.getElementById("linkURL").value="";
   }
 
 });
 
 function addQuotes() {
-  popQuote.style.display = "block";
+  document.getElementById("popQuote").style.display = "block";
 };
+function addLinks(){
+  document.getElementById("popLink").style.display="block";
+}
 
-document.getElementById("quoteInp").addEventListener('input', ()=>{
+
+
+
+document.addEventListener('input', ()=>{
+
+  //quote text box checking if i put text
   if(document.getElementById("quoteInp").value.trim() !== ""){
     document.getElementById("submitQuote").style.color=" #007bff"
     document.getElementById("submitQuote").disabled=false;
@@ -49,19 +64,48 @@ document.getElementById("quoteInp").addEventListener('input', ()=>{
     document.getElementById("submitQuote").style.color=" #565656c6";
     document.getElementById("submitQuote").disabled=true;
   }
-})
 
+  //same in link
+  if(document.getElementById("linkURL").value.trim() !== ""){
+    document.getElementById("submitLink").style.color=" #007bff";
+    document.getElementById("submitLink").disabled=false;
+  }else{
+    document.getElementById("submitLink").style.color=" #565656c6";
+    document.getElementById("submitLink").disabled=true;
+  }
+});
+
+
+const today = new Date();
+const day = today.getDate();
+const month = today.getMonth()+1;
+const year = today.getFullYear();
+
+let dateCreated = "- "+day+"/"+month+"/"+year+" -";
+
+
+
+// - - - -- - -=-  = -= =id popQuote  = = == -=- =- =- = -= -= -=- =- =
+
+
+console.log(dateCreated);
 document.getElementById("submitQuote").addEventListener('click', () =>{
   
   let getQuoteTitle = document.getElementById("quoteTitle").value;
   let getQuoteInp = document.getElementById("quoteInp").value;
 
   let storedQuotes = JSON.parse(localStorage.getItem("storedQuotes")) || [];
+
+  if(getQuoteTitle === ""){
+    getQuoteTitle = "Untitled Quote";
+  }
+
   let newQuotes = {
     title: getQuoteTitle,
-    text: getQuoteInp
+    text: getQuoteInp,
+    date: dateCreated
   };
-  storedQuotes.push(newQuotes);
+  storedQuotes.unshift(newQuotes);
 
   localStorage.setItem("storedQuotes", JSON.stringify(storedQuotes));
 
@@ -71,6 +115,7 @@ document.getElementById("submitQuote").addEventListener('click', () =>{
   document.getElementById("quoteTitle").value="";
   document.getElementById("quoteInp").value="";
 });
+
 displayQuotes();
 
 function displayQuotes(){
@@ -78,9 +123,47 @@ function displayQuotes(){
   quotes.innerHTML="";
 
   for(let i = 0;i<storedQuotes.length;i++){
-    quotes.innerHTML += `<div><h1>${storedQuotes[i].title}</h1></div>`;
-  }
+    quotes.innerHTML += `
+      <div class="quoteList">
+        <div class="titleDate">
+          <h1>${storedQuotes[i].title}</h1>
+          <small>${storedQuotes[i].date}</small>
+        </div>
+        <div onclick="delQuote(${i})">
+          <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash-2"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></svg>
+        </div>
+      </div>`;
+  };
+};
+
+function delQuote(i){
+  let storedQuotes = JSON.parse(localStorage.getItem("storedQuotes")) || [];
+  storedQuotes.splice(i,1);
+
+  localStorage.setItem("storedQuotes", JSON.stringify(storedQuotes));
+  displayQuotes();
 }
+/// = == = = =- =- =- = -= - =- =-=-=----- - =- =- =- =- =- = -= -= -= -= ///
+
+// =-=--==00==--==-=-=--  popLink -=-=-=-=-=-=-=-=-=
+
+document.getElementById("submitLink").addEventListener('click', function(event){
+
+  links.innerHTML += `
+  <a href="${linkURL.value}" target="_blank">
+    <div class="linkList">
+      <h3>${linkName.value}}</h3>
+    </div>
+  </a>
+  `
+
+  document.getElementById("linkName").value="";
+  document.getElementById("linkURL").value="";
+  document.getElementById("popLink").style.display="none";
+});
+
+/// --0-0-0-0-0-0-0=-=-=-=-==0-09-0=0=-=-=-=-=-=-=////
+
 
 ///  -- - -- - - - -MAIN -- - - - -- - - -  -- -//
 function Quotes(){
@@ -102,95 +185,4 @@ function handleShow(setLabel,show,hide,hide1){
   hide1.style.display="none";
 }
 ///  == - - - = -= - = -= -= - =- =- = -= -= - =- =- = -=//
-
-
-
-
-// popQuote.addEventListener('click', function(event) {
-//     if(event.target == clickFolder || event.target == cancel){
-//         clickFolder.style.display="none";
-//         quotedBy.value = "";
-//         quoteInp.value = "";
-//     }
-    
-// });
-
-// function openQuote(){
-//   labelC.innerHTML = "Quote";
-// }
-
-
-
-// function addQuote(){
-//     clickFolder.style.display="block";
-//     inputFolderName.value="";
-//     create.style.color = " #565656c6";
-    
-//     inputFolderName.addEventListener("input", () => {
-      
-//         if (inputFolderName.value.trim() === "") {
-//           create.style.color = " #565656c6";
-//           create.disabled = true;
-//         } else {
-//           create.style.color = "#007bff"; 
-//           create.disabled = false;
-//         }
-//       });
-// }
-
-
-
-// const create = document.getElementById("create");
-
-//   create.addEventListener('click', ()=>{
-//     const inputText = inputFolderName.value.trim();
-
-//       if (inputText !== "") {
-       
-//         const folderList = document.getElementById("folder-list");
-
-//         const newFolder = document.createElement("li");
-//         newFolder.id = "folders";
-
-//         const img = document.createElement("img");
-//         img.id="folderIcon";
-
-//         const imgBox = document.createElement("div");
-//         imgBox.id="imgBox";
-//         imgBox.prepend(img);
-
-//         const folderLabel = document.createElement("h2");
-//         folderLabel.id="folderLabel";
-//         folderLabel.textContent = inputFolderName.value;
-
-//         folderList.prepend(newFolder);
-//         newFolder.prepend(imgBox);
-//         newFolder.prepend(folderLabel);
-
-//         clickFolder.style.display="none";
-
-//         // Create a delete button
-//         const deleteButton = document.createElement("button");
-//         deleteButton.textContent = "Delete";
-//         deleteButton.className = "delete-btn";
-
-//         newFolder.prepend(deleteButton);
-//         // Add delete functionality
-//         deleteButton.addEventListener("click", () => {
-//           folderList.removeChild(newFolder); // Remove the <li> when clicked
-//         });
-
-//         // Append the delete button to the <li>
-//         newListItem.appendChild(deleteButton);
-
-//         // Add the new <li> to the <ul>
-//         todoList.appendChild(newListItem);
-
-//         // Clear the input field
-//         inputField.value = "";
-//         submitButton.style.backgroundColor = "red"; // Reset button color
-//         submitButton.disabled = true; // Disable button after adding
-        
-//       }
-//   });
 

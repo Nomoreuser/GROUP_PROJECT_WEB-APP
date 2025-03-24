@@ -30,10 +30,11 @@
                     </div>
                     <div id="addList">
                         <div onclick="addQuotes()">📝  New Quotes</div>
-                        <div onclick="addLinks()">🔗  New Links</div>
+                        <div onclick="addLinks()" id="addLinks">🔗  New Links</div>
                         <div onclick="addTodo()">✅  New To-do</div>
                     </div>
                     <div style="display: none;">hahahahahahha</div>
+                    
                 </div>
                 
                 <div class="navButton">
@@ -59,13 +60,13 @@
 
 
             <main>
-                <div>
-                    <label for="" id="labelC"></label>
-                </div>
-
-                <hr>
-
-                <div style="height: 100%; width: 100%;">
+                
+                <div style="height: 100vh; width: 100%; background-color: #1d1d1d;">
+                    <div class="lbl">
+                        <label for="" id="labelC"></label>
+                    </div>
+    
+                    <hr style="margin: 0;">
                     <section id="forQuotes">
                         
                     </section>
@@ -104,6 +105,18 @@
             </div>
         </div>
 
+    </div>
+
+    <div id="popLink">
+        <div id="saveLinks">
+            <h1>Save Links</h1>
+            <h2>Name</h2>
+            <input type="text" id="linkName">
+            <h2>URL</h2>
+            <input type="text" id="linkURL">
+            <button id="submitLink" disabled>Add</button>
+            <button id="cancelLink">Cancel</button>
+        </div>
     </div>
 
     <script src="script.js"></script>
