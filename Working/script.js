@@ -4,16 +4,6 @@ let getUsername = localStorage.getItem("username");
 document.getElementById("user-name").innerHTML = getUsername;
 
 
-// const clickFolder = document.getElementById("popQuote");
-// const inputFolderName = document.getElementById("folderName");
-// const quotedBy = document.getElementById("quotedBy");
-// const quoteInp = document.getElementById("inputQuotes");
-// const labelC = document.getElementById("labelC");
-
-//nav button
-let add = document.getElementById("addNew");
-
-//main section container of them
 let quotes = document.getElementById("forQuotes");
 let links = document.getElementById("forLinks");
 let tasks = document.getElementById("forTodo");
@@ -32,8 +22,8 @@ document.addEventListener('click', function(event){
 
   if(event.target === document.getElementById("popQuote") || event.target===document.getElementById("cancel")){
     document.getElementById("popQuote").style.display = "none";
-    document.getElementById("quoteTitle").value="";
     document.getElementById("quoteInp").value="";
+    document.getElementById("quoteTitle").value="";
   }
 
   if(event.target === document.getElementById("cancelLink") || event.target === document.getElementById("popLink")){
@@ -45,6 +35,12 @@ document.addEventListener('click', function(event){
 });
 
 function addQuotes() {
+  document.getElementById("submitQuote").style.color=" #565656c6";
+  document.getElementById("submitQuote").disabled=true;
+
+  document.getElementById("quoteInp").value="";
+  document.getElementById("quoteTitle").value="";
+  
   document.getElementById("popQuote").style.display = "block";
 };
 function addLinks(){
@@ -89,6 +85,7 @@ let dateCreated = "- "+day+"/"+month+"/"+year+" -";
 
 
 console.log(dateCreated);
+
 document.getElementById("submitQuote").addEventListener('click', () =>{
   
   let getQuoteTitle = document.getElementById("quoteTitle").value;
@@ -108,15 +105,14 @@ document.getElementById("submitQuote").addEventListener('click', () =>{
   storedQuotes.unshift(newQuotes);
 
   localStorage.setItem("storedQuotes", JSON.stringify(storedQuotes));
+  
 
   displayQuotes();
+
   
   document.getElementById("popQuote").style.display="none";
-  document.getElementById("quoteTitle").value="";
-  document.getElementById("quoteInp").value="";
-});
-
-displayQuotes();
+  
+}); 
 
 function displayQuotes(){
   let storedQuotes = JSON.parse(localStorage.getItem("storedQuotes")) || [];
@@ -134,6 +130,8 @@ function displayQuotes(){
         </div>
       </div>`;
   };
+
+  
 };
 
 function delQuote(i){
@@ -147,15 +145,43 @@ function delQuote(i){
 
 // =-=--==00==--==-=-=--  popLink -=-=-=-=-=-=-=-=-=
 
+
+
+
+
+
+
+
+
+
+let visit = 0;
+
 document.getElementById("submitLink").addEventListener('click', function(event){
 
+  let url = document.getElementById("linkURL").value;
+  let domain = new URL(url).hostname; // Extract domain
+  let faviconUrl = `https://www.google.com/s2/favicons?sz=128&domain=${domain}`;
+
+  if(linkName.value === ""){
+    linkName.value = linkURL.value;
+  }
+
   links.innerHTML += `
-  <a href="${linkURL.value}" target="_blank">
+    <a href="${linkURL.value}" target="_blank">
     <div class="linkList">
-      <h3>${linkName.value}}</h3>
+    
+      <div class="linkImgName">
+        <div class="linkImg"><img src="${faviconUrl}"></div>
+        <h1>${linkName.value}</h1>
+      </div>
+      <div>
+        <small>Visit: ${visit}<br>Last visit: ${dateCreated}</small>
+      </div>
+      
     </div>
-  </a>
+    </a>
   `
+  visit++;
 
   document.getElementById("linkName").value="";
   document.getElementById("linkURL").value="";

@@ -1,6 +1,7 @@
 *{
   cursor: pointer;
   user-select: none;
+  scroll-behavior: smooth;
 }
 
 body{
@@ -275,6 +276,49 @@ section{
 }
 #cancelLink{
   color: #007bff;
+}
+
+/*  from JS  */
+a{
+  text-decoration: none;
+  color: black;
+}
+
+.linkList{
+  margin: 10px 10px;
+  height: 200px;
+  width: 200px;
+  background-color: #d3d7d952;
+  border-radius: 10px;
+}
+
+
+.linkImgName{
+  width: fit-content;
+  margin: auto;
+  padding-top: 20px;
+}
+.linkImg{
+  height: 70px;
+  width: fit-content;
+  background-color: #1d1d1d;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: auto;
+  margin-bottom: 10px;
+}
+.linkImg img{
+  height: 100%;
+  width: auto;
+}
+.linkImgName h1{
+  /* background-color: #007bff; */
+  text-align: center;
+  color: #dfdfdfda;
+  margin: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 80%;
 }
 /* ==- =- =- =- =-- =-00 = = - = -= -= -=- = -= -= -= -= -= */
 
