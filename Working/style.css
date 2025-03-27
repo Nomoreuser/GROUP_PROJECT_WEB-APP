@@ -301,24 +301,29 @@ a{
 .linkImg{
   height: 70px;
   width: fit-content;
-  background-color: #1d1d1d;
-  border-radius: 50%;
   overflow: hidden;
   margin: auto;
   margin-bottom: 10px;
 }
-.linkImg img{
+.linkList img{
   height: 100%;
   width: auto;
 }
-.linkImgName h1{
-  /* background-color: #007bff; */
+.linkList h2{
+  margin: 0 10%;
   text-align: center;
   color: #dfdfdfda;
-  margin: auto;
   overflow: hidden;
   text-overflow: ellipsis;
-  width: 80%;
+  width: 90%;
+
+}
+
+.linkVisit{
+  color: #dfdfdfda;
+  font-weight: bolder;
+  margin: 0 10%;
+  margin-top: 40px;
 }
 /* ==- =- =- =- =-- =-00 = = - = -= -= -=- = -= -= -= -= -= */
 

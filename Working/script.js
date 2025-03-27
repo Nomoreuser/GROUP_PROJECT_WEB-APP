@@ -111,6 +111,8 @@ document.getElementById("submitQuote").addEventListener('click', () =>{
 
   
   document.getElementById("popQuote").style.display="none";
+
+  Quotes();
   
 }); 
 
@@ -169,13 +171,11 @@ document.getElementById("submitLink").addEventListener('click', function(event){
   links.innerHTML += `
     <a href="${linkURL.value}" target="_blank">
     <div class="linkList">
-    
-      <div class="linkImgName">
-        <div class="linkImg"><img src="${faviconUrl}"></div>
-        <h1>${linkName.value}</h1>
-      </div>
-      <div>
-        <small>Visit: ${visit}<br>Last visit: ${dateCreated}</small>
+      <div class="linkImg"><img src="${faviconUrl}"></div>
+      <h2>${linkName.value}</h2>
+      <div class="linkVisit">
+        <small>Visit: ${visit}</small><br>
+        <small>Last visit: ${dateCreated}</small>
       </div>
       
     </div>
@@ -186,6 +186,8 @@ document.getElementById("submitLink").addEventListener('click', function(event){
   document.getElementById("linkName").value="";
   document.getElementById("linkURL").value="";
   document.getElementById("popLink").style.display="none";
+
+  Links();
 });
 
 /// --0-0-0-0-0-0-0=-=-=-=-==0-09-0=0=-=-=-=-=-=-=////
