@@ -1,4 +1,4 @@
-// global so no need to call it in my function
+
 let formContainer = document.getElementById("form-container");
 
 let loginUsername = document.getElementById("loginUsername");
@@ -19,7 +19,8 @@ function closeForm() {
 
 // show sign up .. hiding log in 
 document.getElementById("toSignup").addEventListener("click", function(event) {
-    event.preventDefault(); // Prevent the link from refreshing the page
+    event.preventDefault();
+
     document.getElementById("signin").style.display = "none"; 
     document.getElementById("signup").style.display = "block"; 
 });
@@ -27,6 +28,7 @@ document.getElementById("toSignup").addEventListener("click", function(event) {
 // show log in .. hide sign up
 document.getElementById("toLogin").addEventListener("click", function(event) {
     event.preventDefault();
+
     document.getElementById("signup").style.display = "none";
     document.getElementById("signin").style.display = "block";
 });

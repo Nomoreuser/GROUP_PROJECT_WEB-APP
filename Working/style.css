@@ -135,18 +135,22 @@ main{
   color: white;
 }
 section{
+  position: relative;
   width: 100%;
-  height: 100%;
+  height: 85%;
   display: none;
-}
-#forQuotes{
+  /* background-color: #007bff; */
   overflow-y: auto;
   overflow-x: hidden;
 }
+#forLinks{
+  
+}
+
 
 
 /* -=- my hidden div will only show when user click the New Quote  -=--=*/
-#popQuote{
+.pop{
   display: none;
   position: absolute;
   background-color:  #0000008c;
@@ -225,15 +229,32 @@ section{
 }
 /* = =-= -= - =- = -= - = -= -= -= - =- = -= -= =-=-=-=-=-=-=-- =- = - */
 
+/* from Js for Quote */
+.quoteList{
+  width: 95%;
+  padding: 10px 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  border-bottom: 1px solid #B0B0B0;
+  margin: auto;
+}
+.quoteList:hover{
+  background-color: #2A2A2A;
+}
+
+.titleDate{
+  color: #E0E0E0;
+  padding: 5px 0;
+}
+.titleDate h1{
+  margin: 0 0;
+}
+
 
 /* = = == = == -=- =- =Show when clicked New Links -= -= - =- =- = - = */
-#popLink{
-  position: absolute;
-  height: 100vh;
-  width: 100%;
-  background-color: #0000008c;
-  display: none;
-}
 #saveLinks{
   position: absolute;
   top: 50%;
@@ -278,81 +299,90 @@ section{
   color: #007bff;
 }
 
-/*  from JS  */
-a{
-  text-decoration: none;
-  color: black;
-}
 
+
+/*  from JS for Link  */
 .linkList{
-  margin: 10px 10px;
+  position: relative;
+  margin: auto;
   height: 200px;
   width: 200px;
   background-color: #d3d7d952;
   border-radius: 10px;
+  box-sizing: border-box;
+  padding: 15px;
 }
 
-
-.linkImgName{
-  width: fit-content;
-  margin: auto;
-  padding-top: 20px;
-}
 .linkImg{
   height: 70px;
   width: fit-content;
   overflow: hidden;
   margin: auto;
-  margin-bottom: 10px;
 }
 .linkList img{
   height: 100%;
   width: auto;
 }
-.linkList h2{
-  margin: 0 10%;
+.linkList h3{
+  margin: auto;
   text-align: center;
   color: #dfdfdfda;
   overflow: hidden;
   text-overflow: ellipsis;
-  width: 90%;
+  margin-top: 10px;
+  width: 100%;
+
+  white-space: nowrap;
 
 }
 
 .linkVisit{
   color: #dfdfdfda;
   font-weight: bolder;
-  margin: 0 10%;
-  margin-top: 40px;
+  margin-top: 35px;
 }
+
+.delLink{
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  display: grid;
+  place-items: center;
+}
+.delLink svg{
+  margin: 0;
+  color: rgba(118, 8, 8, 0.96);
+}
+
+#gridLinks{
+  display: grid; 
+  grid-template-columns: repeat(auto-fit,200px);
+  justify-content: center;
+  column-gap: 35px;
+}
+.gridItemLink{
+  margin: 20px;
+}
+
 /* ==- =- =- =- =-- =-00 = = - = -= -= -=- = -= -= -= -= -= */
 
 
-/* id from js style */
-.quoteList{
-  width: 95%;
-  padding: 10px 40px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  box-sizing: border-box;
-  border-bottom: 1px solid #B0B0B0;
-  margin: auto;
+/*  =- =- =- = =0  Show when clciked New Todo from + New  -=-=-=-=-=-=*/
+.gridTodo{
+  display: grid;
+  grid-template-columns: repeat(3,500px);
+  gap: 35px;
+  justify-content: center;
 }
-.quoteList:hover{
-  background-color: #2A2A2A;
+.todo{
+  margin: 20px;
+  background-color: #B0B0B0;
+  height: 100;
 }
-
-.titleDate{
-  color: #E0E0E0;
-  padding: 5px 0;
+.todo h1{
+  text-align: center;
 }
-.titleDate h1{
-  margin: 0 0;
-}
-
-
 
 
 @media(max-width: 425px){

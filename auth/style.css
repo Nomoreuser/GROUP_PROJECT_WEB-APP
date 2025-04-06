@@ -108,13 +108,43 @@ hr{
     border-radius: 1rem;
     height: 725px;
     width: 425px;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(245, 241, 241);
     overflow: hidden;
 
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
+}
+.signup {
+    position: fixed;
+    display: none;
+    animation: rotate .7s;
+}
+.signin{
+    animation: rotatel .7s;
+}
+@keyframes rotate {
+    0%{
+        transform: translate(-50%,-50%) rotateY(180deg);
+    }
+    50%{
+        background-color: #ffd8d8ec;
+    }
+    100%{
+        transform: translate(-50%,-50%) rotateY(360deg);
+    }
+}
+@keyframes rotatel {
+    0%{
+        transform: translate(-50%,-50%) rotateY(180deg);
+    }
+    50%{
+        background-color: rgb(225, 255, 245);
+    }
+    100%{
+        transform: translate(-50%,-50%) rotateY(0deg);
+    }
 }
 
 .close{
@@ -256,16 +286,6 @@ form .toSignup, .toSignin{
     font-weight: bold;
     color: red;
     text-decoration: none;
-}
-
-.signin{
-    z-index: 4;
-}
-
-.signup {
-    position: fixed;
-    z-index: 5;
-    display: none;
 }
 
 @media (max-width: 480px){

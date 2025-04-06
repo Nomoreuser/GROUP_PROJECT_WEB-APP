@@ -67,16 +67,30 @@
                     </div>
     
                     <hr style="margin: 0;">
+                    
                     <section id="forQuotes">
                         
                     </section>
 
                     <section id="forLinks">
-
+                        <div id="gridLinks">
+                            
+                        </div>
                     </section>
 
                     <section id="forTodo">
-
+                        <div class="gridTodo">
+                            <div class="todo" id="ongoing">
+                                <h1>Ongoing</h1>
+                            </div>
+                            <div class="todo" id="completed">
+                                <h1>Completed</h1>
+                            </div>
+                            <div class="todo" id="failed">
+                                <h1>Failed</h1>
+                            </div>
+                        </div>
+                        
                     </section>
                 </div>
                 
@@ -87,7 +101,7 @@
         
     </div>
 
-    <div id="popQuote">
+    <div id="popQuote" class="pop">
         <div id="quoteBox">
             <h1 style="text-align: center;">Quote</h1>
 
@@ -107,7 +121,7 @@
 
     </div>
 
-    <div id="popLink">
+    <div id="popLink" class="pop">
         <div id="saveLinks">
             <h1>Save Links</h1>
             <h2>Name</h2>
@@ -119,6 +133,10 @@
         </div>
     </div>
 
+    <div id="popTodo" class="pop">
+
+    </div>
+    
     <script src="script.js"></script>
 </body>
 </html>
