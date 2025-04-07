@@ -143,9 +143,9 @@ section{
   overflow-y: auto;
   overflow-x: hidden;
 }
-#forLinks{
+/* #forLinks{
   
-}
+} */
 
 
 
@@ -368,7 +368,7 @@ section{
 /* ==- =- =- =- =-- =-00 = = - = -= -= -=- = -= -= -= -= -= */
 
 
-/*  =- =- =- = =0  Show when clciked New Todo from + New  -=-=-=-=-=-=*/
+/*  =- =- =- = =0  Todo  -=-=-=-=-=-=*/
 .gridTodo{
   display: grid;
   grid-template-columns: repeat(3,500px);
@@ -384,7 +384,54 @@ section{
   text-align: center;
 }
 
-
+/* -==-=-= -= Show when click new Todo for input -= = =0-0- 0-=0= */
+.todoBox{
+  box-sizing: border-box;
+  background-color: #d3d7d9;
+  height: 550px;
+  width: 500px;
+  padding: 20px;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.todoBox label{
+  font-weight: bold;
+  font-size: 18px;
+  color: #3d3d3d;
+}
+.todoBox input{
+  margin: 10px 0 20px 0;
+  outline: none;
+  padding: 10px 20px;
+  width: 90%;
+  border: 1px solid rgb(90, 90, 90);
+  border-radius: 8px;
+  font-size: 18px;
+  color: #3d3d3d;
+}
+.todoBox span{
+  color: red;
+}
+.todoBox button{
+  padding: 15px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 18px;
+  background-color: #2A2A2A;
+  color: #d3d7d9;
+  width: 100%;
+}
+.todoBox #cancelTask{
+  position: absolute;
+  right: 20px;
+}
+.todoBox img{
+  height: 30px;
+  width: 30px;
+}
 @media(max-width: 425px){
   .container{
     flex-direction: column;
